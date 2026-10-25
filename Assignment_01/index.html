@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="dashboard">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-logo">🌤️</span>
+        <div>
+          <h2>Weather Dashboard</h2>
+          <p>Weather at a glance</p>
+        </div>
+      </div>
+
+      <button class="nav-item active" id="home-btn">⌂ &nbsp; Home</button>
+
+      <h3 class="sidebar-heading">RECENT CITIES</h3>
+      <div id="recent-cities" class="city-list">
+        <p class="empty-history">Your searched cities appear here.</p>
+      </div>
+
+      <h3 class="sidebar-heading">POPULAR CITIES</h3>
+      <div class="city-list">
+        <button class="city-link" data-city="Mumbai">📍 Mumbai</button>
+        <button class="city-link" data-city="Delhi">📍 Delhi</button>
+        <button class="city-link" data-city="Bengaluru">📍 Bengaluru</button>
+        <button class="city-link" data-city="Hyderabad">📍 Hyderabad</button>
+        <button class="city-link" data-city="Chennai">📍 Chennai</button>
+      </div>
+
+      <div class="sidebar-footer">
+        <span>☁️</span>
+        <div>
+          <strong>Weather Dashboard</strong>
+          <p>Powered by Open-Meteo</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN DASHBOARD -->
+    <main class="main-content">
+
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">YOUR WEATHER OVERVIEW</p>
+          <h1>Weather Dashboard</h1>
+          <p class="subtitle">Real-time weather, anywhere.</p>
+        </div>
+
+        <div class="unit-switch">
+          <button id="celsius-btn" class="unit-btn active">°C</button>
+          <button id="fahrenheit-btn" class="unit-btn">°F</button>
+        </div>
+      </header>
+
+      <!-- SEARCH -->
+      <form id="search-form" class="search-bar">
+        <span class="search-icon">⌕</span>
+        <input
+          id="city-input"
+          type="text"
+          placeholder="Enter city name (e.g. Pune, Mumbai, Delhi)"
+          aria-label="City name"
+          required
+        >
+        <button type="submit" id="search-btn">Search</button>
+      </form>
+
+      <p id="loading" class="status-message" hidden>
+        <span class="spinner"></span> Fetching weather...
+      </p>
+      <p id="error-message" role="alert"></p>
+
+      <!-- CURRENT WEATHER -->
+      <section id="current-weather" class="current-card">
+        <div class="current-main">
+          <div class="location-line">
+            <span>📍</span>
+            <div>
+              <h2 id="city-name">Search for a city</h2>
+              <p id="current-date">Current local weather</p>
+            </div>
+          </div>
+
+          <div class="temperature-row">
+            <span id="current-icon" class="weather-icon">🌤️</span>
+            <div>
+              <p id="temperature" class="temperature">--°C</p>
+              <p id="current-condition" class="condition">
+                Weather conditions will appear here
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="weather-details">
+          <div class="detail-item">
+            <span class="detail-icon">💧</span>
+            <div>
+              <p>Humidity</p>
+              <h3 id="humidity">--%</h3>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-icon">💨</span>
+            <div>
+              <p>Wind Speed</p>
+              <h3 id="wind-speed">-- km/h</h3>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-icon">🌡️</span>
+            <div>
+              <p>Feels Like</p>
+              <h3 id="feels-like">--°C</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- THREE-DAY FORECAST -->
+      <section class="forecast-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">PLAN AHEAD</p>
+            <h2>3-Day Forecast</h2>
+          </div>
+          <p class="section-note">A quick look at what's ahead</p>
+        </div>
+
+        <div id="forecast-container" class="forecast-grid">
+          <div class="forecast-placeholder">
+            Search for a city to see its forecast.
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM CARDS -->
+      <section class="bottom-grid">
+        <div class="info-card">
+          <span class="info-icon">🌍</span>
+          <div>
+            <h3>Search for a city</h3>
+            <p>Get real-time weather updates and a 3-day forecast for cities around the world.</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <span class="info-icon">🕘</span>
+          <div>
+            <h3>Last Searched</h3>
+            <p id="last-searched">No city searched yet</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <span>☁ Weather Dashboard</span>
+        <span>Built with Vanilla JavaScript</span>
+        <span>Powered by Open-Meteo</span>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>
